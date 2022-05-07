@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/pageFragment">
+
+    <fragment
+        android:id="@+id/pageFragment"
+        android:name="com.englishwords.ui.PageFragment"
+        android:label="fragment_page"
+        tools:layout="@layout/fragment_page" >
+        <action
+            android:id="@+id/action_pageFragment_to_wordFragment"
+            app:destination="@id/wordFragment" />
+        <action
+            android:id="@+id/action_pageFragment_to_forgetFragment"
+            app:destination="@id/forgetFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/wordFragment"
+        android:name="com.englishwords.ui.WordFragment"
+        android:label="WordFragment" >
+        <argument
+            android:name="page"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/forgetFragment"
+        android:name="com.englishwords.ui.ForgetFragment"
+        android:label="fragment_forget"
+        tools:layout="@layout/fragment_forget" />
+</navigation>
