@@ -14,22 +14,12 @@ class WordAdapter(private val onClickLearnListener: (WordModel) -> Unit) : Recyc
     var data = listOf<WordModel>()
     var viewState = true
 
-    private var databaseReference: DatabaseReference
-    private var database: FirebaseDatabase = FirebaseDatabase.getInstance()
-
-    init {
-        databaseReference = database.reference.child("data/words")
-    }
-
-
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = data[position]
         holder.bind(item)
-
     }
 
     inner class ViewHolder(private val binding: ItemWordBinding) : RecyclerView.ViewHolder(binding.root) {
-
         fun bind(wordModel: WordModel) {
             if (viewState) {
                 binding.word.text = wordModel.english
@@ -55,7 +45,6 @@ class WordAdapter(private val onClickLearnListener: (WordModel) -> Unit) : Recyc
 
             } else {
                 binding.state.setBackgroundResource(R.drawable.word_no)
-
             }
 
             binding.state.setOnClickListener {
@@ -71,5 +60,4 @@ class WordAdapter(private val onClickLearnListener: (WordModel) -> Unit) : Recyc
     }
 
     override fun getItemCount() = data.size
-
 }

@@ -22,7 +22,6 @@ class PageAdapter : RecyclerView.Adapter<PageAdapter.ViewHolder>() {
                 it.findNavController().navigate(PageFragmentDirections.actionPageFragmentToWordFragment(page.toString()))
             }
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -32,5 +31,4 @@ class PageAdapter : RecyclerView.Adapter<PageAdapter.ViewHolder>() {
     }
 
     override fun getItemCount() = data.size
-
 }

@@ -19,7 +19,6 @@ class PageViewModel @Inject constructor(database: FirebaseDatabase) : ViewModel(
 
     val wordList: ArrayList<WordModel> = ArrayList()
 
-
     init {
         databaseReference = database.reference.child("data/words")
 
@@ -34,11 +33,9 @@ class PageViewModel @Inject constructor(database: FirebaseDatabase) : ViewModel(
             }
 
             override fun onCancelled(databaseError: DatabaseError) {
-                Log.e("hata", "firebase")
+                Log.e("firebase", databaseError.message)
             }
         })
-
-
     }
 
 }

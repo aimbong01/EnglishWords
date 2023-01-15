@@ -20,12 +20,10 @@ class WordFragment : Fragment() {
     private val viewModel: WordViewModel by viewModels()
     private val args: WordFragmentArgs by navArgs()
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         binding = FragmentWordBinding.inflate(inflater)
 
         adapter = WordAdapter{
@@ -91,5 +89,4 @@ class WordFragment : Fragment() {
             onClick("all")
         }
     }
-
 }

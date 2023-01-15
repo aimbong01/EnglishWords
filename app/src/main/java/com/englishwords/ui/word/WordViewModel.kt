@@ -31,7 +31,7 @@ class WordViewModel @Inject constructor(database: FirebaseDatabase) : ViewModel(
             }
 
             override fun onCancelled(databaseError: DatabaseError) {
-                Log.e("hata", "firebase")
+                Log.e("firebase", databaseError.message)
             }
         })
     }

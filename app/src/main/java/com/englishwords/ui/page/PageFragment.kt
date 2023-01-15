@@ -21,7 +21,6 @@ class PageFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         binding = FragmentPageBinding.inflate(inflater)
 
         adapter = PageAdapter()
@@ -49,5 +48,4 @@ class PageFragment : Fragment() {
         }
         return pages
     }
-
 }

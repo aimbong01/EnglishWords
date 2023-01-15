@@ -17,15 +17,12 @@ class ForgetViewModel @Inject constructor(database: FirebaseDatabase) : ViewMode
     val data: LiveData<ArrayList<WordModel>>
         get() = _data
 
-    val wordList: ArrayList<WordModel> = ArrayList()
-
-
     init {
         databaseReference = database.reference.child("data/words")
 
         databaseReference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                wordList.clear()
+                val wordList: ArrayList<WordModel> = ArrayList()
                 for (postSnapshot in snapshot.children) {
                     val words = postSnapshot.getValue(WordModel::class.java)
                     wordList.add(words!!)
@@ -34,11 +31,22 @@ class ForgetViewModel @Inject constructor(database: FirebaseDatabase) : ViewMode
             }
 
             override fun onCancelled(databaseError: DatabaseError) {
-                Log.e("hata", "firebase")
+                Log.e("firebase", databaseError.message)
             }
         })
+    }
 
-
+    fun setLearn(wordModel: WordModel) {
+        data.value?.let { words ->
+            for ((index, word) in words.withIndex()) {
+                if (word.english == wordModel.english && word.learn == "0") {
+                    databaseReference.child("${index}/learn").setValue("1")
+                }
+                if (word.english == wordModel.english && word.learn == "1") {
+                    databaseReference.child("${index}/learn").setValue("0")
+                }
+            }
+        }
     }
 
 }
