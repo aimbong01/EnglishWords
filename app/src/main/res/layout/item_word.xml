@@ -1,48 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:id="@+id/layout"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:background="@drawable/shape_list_line">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/layout"
+
+    <TextView
+        android:id="@+id/word"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="@drawable/shape_list_line">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="80dp"
+        android:gravity="center"
+        android:text="kelime"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/pronounce"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="okunuş"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@+id/word" />
 
-        <TextView
-            android:id="@+id/word"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="80dp"
-            android:gravity="center"
-            android:text="kelime"
-            android:textColor="@color/white"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <Button
+        android:id="@+id/state"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/word_no"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pronounce" />
 
-        <TextView
-            android:id="@+id/pronounce"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:text="okunuş"
-            android:textColor="@color/white"
-            android:textSize="24sp"
-            app:layout_constraintTop_toBottomOf="@+id/word" />
-
-        <Button
-            android:id="@+id/state"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/word_no"
-            android:gravity="center"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pronounce" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</layout>
+</androidx.constraintlayout.widget.ConstraintLayout>

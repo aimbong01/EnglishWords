@@ -1,10 +1,10 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-    id 'kotlin-android-extensions'
     id 'kotlin-kapt'
     id 'androidx.navigation.safeargs'
     id 'com.google.gms.google-services'
+    id 'dagger.hilt.android.plugin'
 
 }
 
@@ -44,8 +44,8 @@ android {
 
 dependencies {
 
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
 
     implementation "androidx.navigation:navigation-fragment-ktx:2.4.1"
     implementation "androidx.navigation:navigation-ui-ktx:2.4.1"
@@ -55,21 +55,14 @@ dependencies {
 
     implementation "de.hdodenhof:circleimageview:3.1.0"
 
-    //Firebase
-    implementation 'com.google.firebase:firebase-auth-ktx'
-    implementation platform('com.google.firebase:firebase-bom:28.4.0')
-    implementation 'com.google.firebase:firebase-database-ktx:20.0.4'
-    implementation 'com.google.firebase:firebase-storage-ktx:20.0.1'
-
-
     // Retrofit with Moshi Converter
     implementation "com.squareup.retrofit2:converter-moshi:2.9.0"
     implementation "com.squareup.moshi:moshi-kotlin:1.9.3"
 
     // Room and Lifecycle dependencies
-    implementation "androidx.room:room-runtime:2.4.2"
-    implementation 'com.google.firebase:firebase-database:19.2.1'
-    kapt "androidx.room:room-compiler:2.4.2"
+    implementation "androidx.room:room-runtime:2.4.3"
+    implementation 'com.google.firebase:firebase-database:20.1.0'
+    kapt "androidx.room:room-compiler:2.4.3"
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
 
     // Kotlin Extensions and Coroutines support for Room
@@ -77,6 +70,20 @@ dependencies {
 
     //Gson
     implementation 'com.google.code.gson:gson:2.8.5'
+
+    //Firebase
+    implementation 'com.google.firebase:firebase-auth-ktx'
+    implementation platform('com.google.firebase:firebase-bom:28.4.0')
+    implementation 'com.google.firebase:firebase-database-ktx:20.1.0'
+    implementation 'com.google.firebase:firebase-storage-ktx:20.1.0'
+    implementation 'com.google.firebase:firebase-database:20.1.0'
+
+    //Hilt
+    implementation "com.google.dagger:hilt-android:2.38.1"
+    kapt "com.google.dagger:hilt-android-compiler:2.38.1"
+    implementation "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03"
+    kapt "androidx.hilt:hilt-compiler:1.0.0"
+    implementation 'androidx.hilt:hilt-navigation-compose:1.0.0'
 
 
     implementation 'androidx.core:core-ktx:1.6.0'

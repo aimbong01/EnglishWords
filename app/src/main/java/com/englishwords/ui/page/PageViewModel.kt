@@ -1,22 +1,21 @@
-package com.englishwords.ui
+package com.englishwords.ui.page
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.englishwords.model.WordModel
+import com.englishwords.domain.model.WordModel
 import com.google.firebase.database.*
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class SharedViewModel : ViewModel() {
+@HiltViewModel
+class PageViewModel @Inject constructor(database: FirebaseDatabase) : ViewModel() {
     private var databaseReference: DatabaseReference
-    private var database: FirebaseDatabase = FirebaseDatabase.getInstance()
 
     private val _data = MutableLiveData<ArrayList<WordModel>>()
     val data: LiveData<ArrayList<WordModel>>
         get() = _data
-
-    var groupId = 1
-
 
     val wordList: ArrayList<WordModel> = ArrayList()
 
@@ -28,7 +27,7 @@ class SharedViewModel : ViewModel() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 wordList.clear()
                 for (postSnapshot in snapshot.children) {
-                    val words: WordModel? = postSnapshot.getValue(WordModel::class.java)
+                    val words = postSnapshot.getValue(WordModel::class.java)
                     wordList.add(words!!)
                 }
                 _data.value = wordList

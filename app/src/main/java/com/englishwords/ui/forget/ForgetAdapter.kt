@@ -1,4 +1,4 @@
-package com.englishwords.adapter
+package com.englishwords.ui.forget
 
 import android.content.Context
 import android.util.Log
@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.englishwords.databinding.ItemWordBinding
-import com.englishwords.model.WordModel
+import com.englishwords.domain.model.WordModel
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 

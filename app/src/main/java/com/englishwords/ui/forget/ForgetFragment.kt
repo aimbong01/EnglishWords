@@ -1,25 +1,22 @@
-package com.englishwords.ui
+package com.englishwords.ui.forget
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.SnapHelper
-import com.englishwords.R
-import com.englishwords.adapter.ForgetAdapter
-import com.englishwords.adapter.WordAdapter
 import com.englishwords.databinding.FragmentForgetBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ForgetFragment : Fragment() {
 
     private lateinit var binding: FragmentForgetBinding
     private lateinit var adapter: ForgetAdapter
-    private val viewModel: SharedViewModel by viewModels()
-
-
+    private val viewModel: ForgetViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

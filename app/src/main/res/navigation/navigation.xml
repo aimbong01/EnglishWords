@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/pageFragment"
-        android:name="com.englishwords.ui.PageFragment"
+        android:name="com.englishwords.ui.page.PageFragment"
         android:label="fragment_page"
         tools:layout="@layout/fragment_page" >
         <action
@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/wordFragment"
-        android:name="com.englishwords.ui.WordFragment"
+        android:name="com.englishwords.ui.word.WordFragment"
         android:label="WordFragment" >
         <argument
             android:name="page"
@@ -27,7 +27,7 @@
     </fragment>
     <fragment
         android:id="@+id/forgetFragment"
-        android:name="com.englishwords.ui.ForgetFragment"
+        android:name="com.englishwords.ui.forget.ForgetFragment"
         android:label="fragment_forget"
         tools:layout="@layout/fragment_forget" />
 </navigation>
